@@ -1,0 +1,11 @@
+$stmt = makeStatement($con, $query3);
+        echo '<h4>Inhalte der Tabelle ' . $tableId . ':</h4>';
+        if ($stmt !== false) {
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                foreach ($row as $key => $value) {
+                    echo $key . ': ' . $value . '<br>';
+                }
+            }
+        } else {
+            echo 'Es gab ein Problem beim Ausführen der Abfrage oder keine Daten wurden gefunden.';
+        }
